@@ -823,36 +823,36 @@ void SendAllocateMenu(Player* player, Creature* creature)
 
     player->PrepareQuestMenu(creature->GetGUID());
 
-    AddGossipItemFor(player, GOSSIP_ICON_DOT, Acore::StringFormatFmt("|TInterface\\GossipFrame\\TrainerGossipIcon:16|t |cffFF0000{} |rAttribute(s) to spend.", GetAttributesToSpend(player)), GOSSIP_SENDER_MAIN, 0);
+    AddGossipItemFor(player, GOSSIP_ICON_DOT, Acore::StringFormat("|TInterface\\GossipFrame\\TrainerGossipIcon:16|t |cffFF0000{} |rAttribute(s) to spend.", GetAttributesToSpend(player)), GOSSIP_SENDER_MAIN, 0);
 
-    std::string optStamina = Acore::StringFormatFmt("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Stamina ({}) {}",
+    std::string optStamina = Acore::StringFormat("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Stamina ({}) {}",
         IsAttributeAtMax(ATTR_SPELL_STAMINA, attributes->Stamina) ? "|cff777777" : "|cff000000",
-        Acore::StringFormatFmt("{}/{}", attributes->Stamina, sConfigMgr->GetOption<uint32>("Attriboost.Max.Stamina", 100)),
+        Acore::StringFormat("{}/{}", attributes->Stamina, sConfigMgr->GetOption<uint32>("Attriboost.Max.Stamina", 100)),
         IsAttributeAtMax(ATTR_SPELL_STAMINA, attributes->Stamina) ? "|cffFF0000(MAXED)|r" : "");
 
-    std::string optStrength = Acore::StringFormatFmt("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Strength ({}) {}",
+    std::string optStrength = Acore::StringFormat("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Strength ({}) {}",
         IsAttributeAtMax(ATTR_SPELL_STRENGTH, attributes->Strength) ? "|cff777777" : "|cff000000",
-        Acore::StringFormatFmt("{}/{}", attributes->Strength, sConfigMgr->GetOption<uint32>("Attriboost.Max.Strength", 100)),
+        Acore::StringFormat("{}/{}", attributes->Strength, sConfigMgr->GetOption<uint32>("Attriboost.Max.Strength", 100)),
         IsAttributeAtMax(ATTR_SPELL_STRENGTH, attributes->Strength) ? "|cffFF0000(MAXED)|r" : "");
 
-    std::string optAgility = Acore::StringFormatFmt("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Agility ({}) {}",
+    std::string optAgility = Acore::StringFormat("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Agility ({}) {}",
         IsAttributeAtMax(ATTR_SPELL_AGILITY, attributes->Agility) ? "|cff777777" : "|cff000000",
-        Acore::StringFormatFmt("{}/{}", attributes->Agility, sConfigMgr->GetOption<uint32>("Attriboost.Max.Agility", 100)),
+        Acore::StringFormat("{}/{}", attributes->Agility, sConfigMgr->GetOption<uint32>("Attriboost.Max.Agility", 100)),
         IsAttributeAtMax(ATTR_SPELL_AGILITY, attributes->Agility) ? "|cffFF0000(MAXED)|r" : "");
 
-    std::string optIntellect = Acore::StringFormatFmt("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Intellect ({}) {}",
+    std::string optIntellect = Acore::StringFormat("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Intellect ({}) {}",
         IsAttributeAtMax(ATTR_SPELL_INTELLECT, attributes->Intellect) ? "|cff777777" : "|cff000000",
-        Acore::StringFormatFmt("{}/{}", attributes->Intellect, sConfigMgr->GetOption<uint32>("Attriboost.Max.Intellect", 100)),
+        Acore::StringFormat("{}/{}", attributes->Intellect, sConfigMgr->GetOption<uint32>("Attriboost.Max.Intellect", 100)),
         IsAttributeAtMax(ATTR_SPELL_INTELLECT, attributes->Intellect) ? "|cffFF0000(MAXED)|r" : "");
 
-    std::string optSpirit = Acore::StringFormatFmt("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Spirit ({}) {}",
+    std::string optSpirit = Acore::StringFormat("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Spirit ({}) {}",
         IsAttributeAtMax(ATTR_SPELL_SPIRIT, attributes->Spirit) ? "|cff777777" : "|cff000000",
-        Acore::StringFormatFmt("{}/{}", attributes->Spirit, sConfigMgr->GetOption<uint32>("Attriboost.Max.Spirit", 100)),
+        Acore::StringFormat("{}/{}", attributes->Spirit, sConfigMgr->GetOption<uint32>("Attriboost.Max.Spirit", 100)),
         IsAttributeAtMax(ATTR_SPELL_SPIRIT, attributes->Spirit) ? "|cffFF0000(MAXED)|r" : "");
 
-    std::string optSpellPower = Acore::StringFormatFmt("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Spell Power ({}) {}",
+    std::string optSpellPower = Acore::StringFormat("|TInterface\\MINIMAP\\UI-Minimap-ZoomInButton-Up:16|t {}Spell Power ({}) {}",
         IsAttributeAtMax(ATTR_SPELL_SPELL_POWER, attributes->SpellPower) ? "|cff777777" : "|cff000000",
-        Acore::StringFormatFmt("{}/{}", attributes->SpellPower, sConfigMgr->GetOption<uint32>("Attriboost.Max.SpellPower", 100)),
+        Acore::StringFormat("{}/{}", attributes->SpellPower, sConfigMgr->GetOption<uint32>("Attriboost.Max.SpellPower", 100)),
         IsAttributeAtMax(ATTR_SPELL_SPELL_POWER, attributes->SpellPower) ? "|cffFF0000(MAXED)|r" : "");
 
     if (HasSetting(player, ATTR_SETTING_PROMPT))
@@ -899,7 +899,7 @@ void SendSettingsMenu(Player* player, Creature* creature)
     player->PrepareQuestMenu(creature->GetGUID());
 
     auto hasPromptSetting = HasSetting(player, ATTR_SETTING_PROMPT);
-    AddGossipItemFor(player, GOSSIP_ICON_DOT, Acore::StringFormatFmt("|TInterface\\GossipFrame\\HealerGossipIcon:16|t Prompt 'Are you sure': {}", hasPromptSetting ? "|cff00FF00Enabled|r" : "|cffFF0000Disabled"), GOSSIP_SENDER_MAIN, ATTR_GOSSIP_SETTINGS_PROMPT);
+    AddGossipItemFor(player, GOSSIP_ICON_DOT, Acore::StringFormat("|TInterface\\GossipFrame\\HealerGossipIcon:16|t Prompt 'Are you sure': {}", hasPromptSetting ? "|cff00FF00Enabled|r" : "|cffFF0000Disabled"), GOSSIP_SENDER_MAIN, ATTR_GOSSIP_SETTINGS_PROMPT);
 
     AddGossipItemFor(player, GOSSIP_ICON_DOT, "|TInterface\\MONEYFRAME\\Arrow-Left-Down:16|t Back", GOSSIP_SENDER_MAIN, ATTR_GOSSIP_SETTINGS_RETURN);
 
