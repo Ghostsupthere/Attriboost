@@ -14,7 +14,7 @@
 #                     1 - Enabled
 #
 
-Attriboost.Enable = 0
+Attriboost.Enable = 1
 
 #
 #    Attriboost.ResetCost
