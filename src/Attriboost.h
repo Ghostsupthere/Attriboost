@@ -70,8 +70,8 @@ class AttriboostPlayerScript : public PlayerScript
 public:
     AttriboostPlayerScript() : PlayerScript("AttriboostPlayerScript") { }
 
-    virtual void OnLogin(Player* /*player*/) override;
-    virtual void OnLogout(Player* /*player*/) override;
+    virtual void OnPlayerLogin(Player* /*player*/) override;
+    virtual void OnPlayerLogout(Player* /*player*/) override;
     virtual void OnPlayerCompleteQuest(Player* /*player*/, Quest const* /*quest*/) override;
     virtual void OnPlayerLeaveCombat(Player* /*player*/) override;
 

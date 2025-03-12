@@ -6,7 +6,7 @@
 
 #include <AI/ScriptedAI/ScriptedGossip.h>
 
-void AttriboostPlayerScript::OnLogin(Player* player)
+void AttriboostPlayerScript::OnPlayerLogin(Player* player)
 {
     if (!player)
     {
@@ -27,7 +27,7 @@ void AttriboostPlayerScript::OnLogin(Player* player)
     ApplyAttributes(player, attributes);
 }
 
-void AttriboostPlayerScript::OnLogout(Player* player)
+void AttriboostPlayerScript::OnPlayerLogout(Player* player)
 {
     if (!player)
     {
@@ -652,7 +652,7 @@ bool IsAttributeAtMax(uint32 attribute, uint32 value)
         return value >= sConfigMgr->GetOption<uint32>("Attriboost.Max.Spirit", 1000);
 
     case ATTR_SPELL_SPELL_POWER:
-        return value >= sConfigMgr->GetOption<uint32>("Attriboost.Max.SpellPower", 1000);
+        return value >= sConfigMgr->GetOption<uint32>("Attriboost.Max.SpellPower", 10000);
     }
 
     return true;
